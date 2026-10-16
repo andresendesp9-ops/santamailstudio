@@ -1,0 +1,2 @@
+Colocar aqui o logo e as fotos reais do kit.
+O ficheiro logo.png é usado na pré-visualização quando o link é partilhado.
