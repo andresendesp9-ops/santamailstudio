@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kit de cartas para pais e filhos escreverem ao Pai Natal, juntos.">
+<meta property="og:title" content="Santa Mail Studio">
+<meta property="og:description" content="Escrevam ao Pai Natal. Juntos.">
+<meta property="og:image" content="/assets/logo.png">
+<title>Santa Mail Studio — Cartas para o Pai Natal, em família</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=Mea+Culpa&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3EDE0; --paper:#FBF8F1; --ink:#1F4D33; --red:#C8371F; --ice:#BFD9E8; --muted:#4d6a58;
+  --display:'Rye','Georgia',serif; --body:'Special Elite','Courier New',monospace; --script:'Mea Culpa','Brush Script MT',cursive;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#13261B;--paper:#1B3426;--ink:#F3EDE0;--red:#EE6A4F;--ice:#7FA3B8;--muted:#B9CBBE}
+}
+:root[data-theme="dark"]{--bg:#13261B;--paper:#1B3426;--ink:#F3EDE0;--red:#EE6A4F;--ice:#7FA3B8;--muted:#B9CBBE}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+.frame{margin:0 auto;max-width:980px;min-height:100vh;border:16px solid transparent;
+  border-image:repeating-linear-gradient(135deg,var(--red) 0 12px,var(--paper) 12px 24px) 16;background:var(--bg);padding:0 clamp(20px,5vw,56px)}
+h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--red);line-height:1.08;margin:0}
+h1{font-size:clamp(44px,9vw,84px)}
+h2{font-size:clamp(30px,5.5vw,48px);margin-bottom:18px}
+h3{font-size:24px;margin-bottom:8px}
+p{margin:0 0 14px;max-width:62ch}
+section{padding:56px 0;border-top:2px dotted color-mix(in srgb,var(--ink) 35%,transparent)}
+.hero{text-align:center;border-top:0;padding-top:44px}
+.stamp{width:min(230px,56vw);display:block;margin:0 auto 18px;color:var(--red);transform:rotate(-6deg);animation:thump .7s .15s both cubic-bezier(.2,1.6,.4,1)}
+@keyframes thump{from{transform:rotate(-14deg) scale(1.5);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+.hero p{margin-left:auto;margin-right:auto;font-size:20px;color:var(--ink)}
+.btn{display:inline-block;background:var(--red);color:#FBF8F1;font-family:var(--display);font-size:22px;text-decoration:none;padding:16px 30px;border:3px solid var(--ink);border-radius:4px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover,.btn:focus-visible{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink);outline:none}
+.btn:focus-visible{outline:3px solid var(--ice);outline-offset:4px}
+.sign{font-family:var(--script);font-size:46px;color:var(--red);line-height:1;margin-top:6px}
+.pieces{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:28px}
+.sheet{background:var(--paper);border:2px solid var(--ink);padding:22px 22px 18px;position:relative;box-shadow:6px 6px 0 color-mix(in srgb,var(--ink) 18%,transparent)}
+.sheet:nth-child(1){transform:rotate(-1.4deg)}.sheet:nth-child(2){transform:rotate(1deg)}.sheet:nth-child(3){transform:rotate(-.8deg)}
+.sheet::before{content:"";position:absolute;top:-11px;left:50%;width:70px;height:22px;margin-left:-35px;background:var(--ice);opacity:.85;transform:rotate(-3deg)}
+.sheet p{font-size:16px;margin:0}
+.extras{margin-top:26px;font-size:17px}
+.steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:18px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:26px;color:var(--red);border:3px solid var(--red);border-radius:50%;width:48px;height:48px;display:grid;place-items:center}
+.steps strong{font-family:var(--display);font-weight:400;font-size:21px;color:var(--ink);display:block}
+.quote{background:var(--red);color:#FBF8F1;margin:0 calc(-1*clamp(20px,5vw,56px));padding:54px clamp(24px,6vw,64px);border:0;text-align:center}
+.quote h2{color:#FBF8F1;margin:0 0 14px}
+.quote p{margin:0 auto;color:#FBF8F1}
+.buy{text-align:center}
+.price{font-family:var(--display);font-size:56px;color:var(--ink);margin:6px 0 4px}
+.small{font-size:14px;color:var(--muted)}
+footer{padding:34px 0 40px;text-align:center;font-size:14px;color:var(--muted);border-top:2px dotted color-mix(in srgb,var(--ink) 35%,transparent)}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<main class="frame">
+
+<section class="hero">
+  <svg class="stamp" viewBox="0 0 200 200" role="img" aria-label="Carimbo Santa Mail Studio">
+    <defs><path id="top" d="M30,100a70,70 0 1,1 140,0"/><path id="bot" d="M24,100a76,76 0 0,0 152,0"/></defs>
+    <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="4"/>
+    <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <text font-family="Special Elite,monospace" font-size="19" letter-spacing="5" fill="currentColor"><textPath href="#top" startOffset="50%" text-anchor="middle">SANTA MAIL</textPath></text>
+    <text font-family="Special Elite,monospace" font-size="19" letter-spacing="6" fill="currentColor"><textPath href="#bot" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">STUDIO</textPath></text>
+    <path d="M100 62l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/>
+    <path d="M66 96h58v40H66z" fill="currentColor"/><path d="M66 96l29 22 29-22" fill="none" stroke="var(--bg)" stroke-width="3"/>
+    <path d="M128 92q12 4 22 0M128 102q12 4 22 0M128 112q12 4 22 0" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  </svg>
+  <h1>Escrevam ao Pai Natal. Juntos.</h1>
+  <p>Um kit de cartas para pais e filhos preencherem à mesma mesa e olharem para o ano que passou.</p>
+  <a class="btn" href="#comprar">Quero o meu kit</a>
+</section>
+
+<section>
+  <h2>O Natal começa numa carta</h2>
+  <p>O kit da Santa Mail Studio traz três peças para preencher em família: uma carta do Pai Natal, um relatório das crianças felizes e uma lista de prendas.</p>
+  <p>Não é só sobre o que se pede. É uma noite sem pressa em que cada um conta o que lhe fez sorrir.</p>
+  <div class="pieces">
+    <div class="sheet"><h3>A carta do Pai Natal</h3><p>Uma carta para cada criança, com espaço para o nome e um selo de “Criança Feliz”.</p></div>
+    <div class="sheet"><h3>O relatório</h3><p>Do Gabinete de Avaliação do Polo Norte, para assinalar o que correu bem este ano.</p></div>
+    <div class="sheet"><h3>A lista de prendas</h3><p>Cor favorita, um amigo especial e três desejos. Com letra de criança.</p></div>
+  </div>
+  <p class="extras">Inclui ainda envelopes de riscas e autocolantes para fechar e enfeitar tudo.</p>
+</section>
+
+<section>
+  <h2>Como se vive</h2>
+  <ol class="steps">
+    <li><div><strong>Sentem-se juntos</strong>Chá, bolachas e telemóveis longe da mesa.</div></li>
+    <li><div><strong>Preencham as peças</strong>A criança escreve a lista. Os pais respondem às perguntas ao lado dela.</div></li>
+    <li><div><strong>Fechem o envelope</strong>Colem os autocolantes e deixem a carta pronta para seguir para o Polo Norte.</div></li>
+  </ol>
+</section>
+
+<section class="quote">
+  <h2>Eles não pedem presentes. Pedem presença.</h2>
+  <p>O ano passa depressa. Este kit é um pretexto para parar uma noite e estar inteiro com quem mais importa.</p>
+</section>
+
+<section class="buy" id="comprar">
+  <h2>Pronto para escrever?</h2>
+  <p style="margin-left:auto;margin-right:auto">Carta, relatório, lista de prendas, envelopes e autocolantes numa só caixa.</p>
+  <div class="price">00,00 €</div>
+  <p class="small" style="margin:0 auto 22px">Pagamento seguro. Envio antes do Natal para as encomendas dentro do prazo.</p>
+  <a class="btn" href="https://buy.stripe.com/COLA-AQUI-O-TEU-PAYMENT-LINK">Comprar o kit</a>
+  <div class="sign">Pai Natal</div>
+</section>
+
+<footer>Santa Mail Studio · Feito com papel, tinta e tempo juntos<br>Contacto: o-teu-email@exemplo.pt</footer>
+
+</main>
+</body>
+</html>
