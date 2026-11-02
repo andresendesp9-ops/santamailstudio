@@ -56,7 +56,13 @@ section{padding:56px 0;border-top:2px dotted color-mix(in srgb,var(--ink) 35%,tr
 .price{font-family:var(--display);font-size:56px;color:var(--ink);margin:6px 0 4px}
 .small{font-size:14px;color:var(--muted)}
 footer{padding:34px 0 40px;text-align:center;font-size:14px;color:var(--muted);border-top:2px dotted color-mix(in srgb,var(--ink) 35%,transparent)}
-@media (prefers-reduced-motion:reduce){.stamp{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+footer a:hover,footer a:focus-visible{color:var(--red)}
+.social{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;color:var(--muted);text-decoration:none;transition:color .15s,transform .15s}
+.social:hover,.social:focus-visible{color:var(--red);transform:translateY(-2px);outline:none}
+.social:focus-visible{outline:3px solid var(--ice);outline-offset:4px;border-radius:4px}
+.social svg{width:28px;height:28px;display:block}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}html{scroll-behavior:auto}.btn,.social{transition:none}}
 </style>
 </head>
 <body>
@@ -107,13 +113,22 @@ footer{padding:34px 0 40px;text-align:center;font-size:14px;color:var(--muted);b
 <section class="buy" id="comprar">
   <h2>Pronto para escrever?</h2>
   <p style="margin-left:auto;margin-right:auto">Carta, relatório, lista de prendas, envelopes e autocolantes numa só caixa.</p>
-  <div class="price">00,00 €</div>
+  <div class="price">9,90 €</div>
+  <p class="small" style="margin:0 auto 6px">Portes de envio para Portugal Continental: 3,99 €.</p>
   <p class="small" style="margin:0 auto 22px">Pagamento seguro. Envio antes do Natal para as encomendas dentro do prazo.</p>
-  <a class="btn" href="https://buy.stripe.com/COLA-AQUI-O-TEU-PAYMENT-LINK">Comprar o kit</a>
+  <a class="btn" href="https://buy.stripe.com/test_9B67sNeCL2wU6Ay2Hdao800">Comprar o kit</a>
   <div class="sign">Pai Natal</div>
 </section>
 
-<footer>Santa Mail Studio · Feito com papel, tinta e tempo juntos<br>Contacto: o-teu-email@exemplo.pt</footer>
+<footer>Santa Mail Studio · Feito com papel, tinta e tempo juntos<br>Contacto: <a href="mailto:santamailstudio.org@gmail.com">santamailstudio.org@gmail.com</a><br>
+  <a class="social" href="https://www.instagram.com/santamailstudio?srtk=MTRyZ3Yzcmh2NGd3Yg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Santa Mail Studio no Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5"/>
+      <circle cx="12" cy="12" r="4.2"/>
+      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  </a>
+</footer>
 
 </main>
 </body>
